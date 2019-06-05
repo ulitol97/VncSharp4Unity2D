@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3717df4-1991-43f2-9a3a-9c91a1a2aecd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/VncSharp/VncClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VncSharp/VncClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VncSharp/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VncSharp/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VncSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VncSharp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VncSharp/RemoteDesktop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VncSharp/RemoteDesktop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VncSharp/VncSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VncSharp/VncSharp.csproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,106 +14,149 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/VncSharp/VncClient.cs">
+        <entry file="file://$PROJECT_DIR$/VncSharp/RemoteDesktop.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-87">
-              <caret line="392" column="86" selection-start-line="392" selection-start-column="86" selection-end-line="392" selection-end-column="86" />
+            <state relative-caret-position="306">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
               <folding>
-                <marker date="1559738576487" expanded="true" signature="0:790" ph="/* VncSharp - .NET VNC Client Library ... */" />
-                <marker date="1559738576487" expanded="false" signature="798:980" ph="..." />
-                <marker date="1559738576487" expanded="true" signature="981:1081" ph="/* ReSharper disable CompareOfFloatsByEqualityOperator ... */" />
-                <marker date="1559738576487" expanded="true" signature="1101:22402" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="1105:1236" ph="/// Delegate definition of an Event Handler used to indicate a Framebuffer Update has been received. ... " />
-                <marker date="1559738576487" expanded="true" signature="1333:22400" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="1833:1924" ph="/// Raised when the connection to the remote host is lost. ... " />
-                <marker date="1559738576487" expanded="true" signature="1972:2072" ph="/// Raised when the server caused the local clipboard to be filled. ... " />
-                <marker date="1559738576487" expanded="true" signature="2119:2227" ph="/// Gets the Framebuffer representing the remote server's desktop geometry. ... " />
-                <marker date="1559738576487" expanded="true" signature="2286:2403" ph="/// Gets/Sets if full screen refresh is required (forced) from the connected server. ... " />
-                <marker date="1559738576487" expanded="true" signature="2453:2529" ph="/// Gets the hostname of the remote desktop ... " />
-                <marker date="1559738576487" expanded="true" signature="2554:2605" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="2609:2745" ph="/// Returns True if the VncClient object is View-Only, meaning no mouse/keyboard events are being sent. ... " />
-                <marker date="1559738576487" expanded="true" signature="2768:3083" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="2821:3076" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="2924:3070" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="3197:3259" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="3263:3909" ph="/// Connect to a VNC Host and determine which type of Authentication it uses. If the host uses Password Authentic ... " />
-                <marker date="1559738576487" expanded="true" signature="3982:7107" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="4059:4282" ph="/* If a diplay number is specified (used to connect to Unix servers) ... */" />
-                <marker date="1559738576487" expanded="true" signature="4506:4559" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="4724:6974" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="4864:5076" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="4901:4993" ph="/* Now we are connected to the real server; read the protocol version of the ... */" />
-                <marker date="1559738576487" expanded="true" signature="5229:5507" ph="/* Based on what the server sends back in the way of supported Security Types, one of ... */" />
-                <marker date="1559738576487" expanded="true" signature="5840:6162" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="5853:5992" ph="/* The server is not able (or willing) to accept the connection. ... */" />
-                <marker date="1559738576487" expanded="true" signature="6614:6928" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="6627:6743" ph="/* For some reason, the server is not accepting the connection.  Get the ... */" />
-                <marker date="1559738576487" expanded="true" signature="6995:7100" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="7111:7556" ph="/// Connect to a VNC Host and determine which type of Authentication it uses. If the host uses Password Authentic ... " />
-                <marker date="1559738576487" expanded="true" signature="7591:7633" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="7637:8168" ph="/// Connect to a VNC Host and determine which type of Authentication it uses. If the host uses Password Authentic ... " />
-                <marker date="1559738576487" expanded="true" signature="8216:8264" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="8268:8659" ph="/// Examines a list of Security Types supported by a VNC Server and chooses one that the Client supports.  See 6. ... " />
-                <marker date="1559738576487" expanded="true" signature="8713:9259" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="8721:8842" ph="/* Pick the first match in the list of given types.  If you want to add support for new ... */" />
-                <marker date="1559738576487" expanded="true" signature="8885:9242" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="8944:9211" ph="/* VNC Authentication ... */" />
-                <marker date="1559738576487" expanded="true" signature="9263:9542" ph="/// Use a password to authenticate with a VNC Host. NOTE: This is only necessary if Connect() returns TRUE. ... " />
-                <marker date="1559738576487" expanded="true" signature="9586:10581" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="9674:9797" ph="/* If new Security Types are supported in future, add the code here.  For now, only ... */" />
-                <marker date="1559738576487" expanded="true" signature="9824:9870" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="10065:10088" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="10095:10424" ph="/* Authentication failed, and if the server is using Protocol version 3.8, a ... */" />
-                <marker date="1559738576487" expanded="true" signature="10585:10807" ph="/// Performs VNC Authentication using VNC DES encryption.  See the RFB Protocol doc 6.2.2. ... " />
-                <marker date="1559738576487" expanded="true" signature="10864:10989" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="10993:11316" ph="/// Encrypts a challenge using the specified password. See RFB Protocol Document v. 3.8 section 6.2.2. ... " />
-                <marker date="1559738576487" expanded="true" signature="11385:12517" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="12235:12332" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="12521:12672" ph="/// Finish setting-up protocol with VNC Host.  Should be called after Connect and Authenticate (if password requi ... " />
-                <marker date="1559738576487" expanded="true" signature="12726:13529" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="12946:13261" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="13533:13707" ph="/// Begin getting updates from the VNC Server.  This will continue until StopUpdates() is called.  NOTE: this mus ... " />
-                <marker date="1559738576487" expanded="true" signature="13736:14059" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="14063:14245" ph="/// Stops sending requests for updates and disconnects from the remote host.  You must call Connect() again if yo ... " />
-                <marker date="1559738576487" expanded="true" signature="14272:14871" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="14348:14480" ph="/* BUG FIX: Simon.Phillips@warwick.ac.uk for UltraVNC disconnect issue ... */" />
-                <marker date="1559738576487" expanded="true" signature="14488:14552" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="14559:14717" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="14565:14712" ph="/* this may not work, as Disconnect can get called in response to the ... */" />
-                <marker date="1559738576487" expanded="true" signature="14875:14980" ph="/// An event that occurs whenever the server sends a Framebuffer Update. ... " />
-                <marker date="1559738576487" expanded="true" signature="15061:15103" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="15109:15263" ph="/// Worker thread lives here and processes protocol messages infinitely, triggering events or other actions as ne ... " />
-                <marker date="1559738576487" expanded="true" signature="15294:19138" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="15416:19128" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="15480:18692" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="15617:18364" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="16056:17560" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="16569:16717" ph="/* Let the UI know that an updated rectangle is available, but check ... */" />
-                <marker date="1559738576487" expanded="true" signature="16901:17078" ph="/* In order to play nicely with WinForms controls, we do a check here to ... */" />
-                <marker date="1559738576487" expanded="true" signature="17207:17314" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="18385:18554" ph="/* Moved screen update request here to prevent it being called multiple times ... */" />
-                <marker date="1559738576487" expanded="true" signature="18715:19071" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="18719:18888" ph="/* On the first time of no data being received we force a complete update ... */" />
-                <marker date="1559738576487" expanded="true" signature="19176:19595" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="19184:19332" ph="/* In order to play nicely with WinForms controls, we do a check here to ... */" />
-                <marker date="1559738576487" expanded="true" signature="19632:20113" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="19655:19812" ph="/* In order to play nicely with WinForms controls, we do a check here to ... */" />
-                <marker date="1559738576487" expanded="true" signature="20296:20351" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="20595:20751" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="20622:20683" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="20690:20741" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="20911:21023" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="20923:20982" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="20989:21019" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="21192:21308" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="21204:21264" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="21271:21304" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="21314:22158" ph="/// Requests that the remote host send a screen update. ... " />
-                <marker date="1559738576487" expanded="true" signature="22216:22397" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="22228:22356" ph="{...}" />
-                <marker date="1559738576487" expanded="true" signature="22363:22393" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="0:790" ph="/* VncSharp - .NET VNC Client Library ... */" />
+                <marker date="1559754090806" expanded="true" signature="808:1141" ph="..." />
+                <marker date="1559754090806" expanded="true" signature="1142:1232" ph="/* ReSharper disable ArrangeAccessorOwnerBody ... */" />
+                <marker date="1559754090806" expanded="true" signature="1311:47952" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="1318:1459" ph="/// Event Handler delegate declaration used by events that signal successful connection with the server. ... " />
+                <marker date="1559754090806" expanded="true" signature="1549:1975" ph="/// When connecting to a VNC Host, a password will sometimes be required.  Therefore a password must be obtained  ... " />
+                <marker date="1559754090806" expanded="true" signature="2032:2284" ph="/// SpecialKeys is a list of the various keyboard combinations that overlap with the client-side and make it ... " />
+                <marker date="1559754090806" expanded="true" signature="2312:2402" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="2478:2842" ph="/* The RemoteDesktop control takes care of all the necessary RFB Protocol and GUI handling, including mouse and  ... */" />
+                <marker date="1559754090806" expanded="true" signature="2880:47950" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="2976:3154" ph="/* Raised after a successful call to the Connect() method.  Includes information for updating the local display  ... */" />
+                <marker date="1559754090806" expanded="true" signature="3297:3392" ph="/* Raised when the VNC Host drops the connection. ... */" />
+                <marker date="1559754090806" expanded="true" signature="3540:3652" ph="/* Raised when the VNC Host sends text to the client's clipboard.  ... */" />
+                <marker date="1559754090806" expanded="true" signature="3714:4014" ph="/// Points to a Function capable of obtaining a user's password.  By default this means using the PasswordDialog. ... " />
+                <marker date="1559754090806" expanded="true" signature="4023:4138" ph="/* ReSharper disable once MemberCanBePrivate.Global ... */" />
+                <marker date="1559754090806" expanded="true" signature="4933:5052" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="5084:5353" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="5108:5301" ph="/* Users of the control can choose to use their own Authentication GetPassword() method via the delegate above.   ... */" />
+                <marker date="1559754090806" expanded="true" signature="5471:5634" ph="/* The port number used by the VNC Host (typically 5900). ... */" />
+                <marker date="1559754090806" expanded="true" signature="5661:5913" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="5720:5903" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="5923:6084" ph="/// True if the RemoteDesktop is connected and authenticated (if necessary) with a remote VNC Host; otherwise Fal ... " />
+                <marker date="1559754090806" expanded="true" signature="6176:6256" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="6266:6659" ph="/* This is a hack to get around the issue of DesignMode returning ... */" />
+                <marker date="1559754090806" expanded="true" signature="6691:6785" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="6717:6775" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="6795:6933" ph="/// Returns a more appropriate default size for initial drawing of the control at design time ... " />
+                <marker date="1559754090806" expanded="true" signature="6966:7033" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="7100:7216" ph="/* The name of the remote desktop, or &quot;Disconnected&quot; if not connected. ... */" />
+                <marker date="1559754090806" expanded="true" signature="7247:7339" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="7349:7430" ph="/// The image of the remote desktop. ... " />
+                <marker date="1559754090806" expanded="true" signature="7459:7515" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="7525:8154" ph="/// Get a complete update of the entire screen from the remote host. ... " />
+                <marker date="1559754090806" expanded="true" signature="8193:8291" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="8301:8731" ph="/// Insures the state of the connection to the server, either Connected or Not Connected depending on the value o ... " />
+                <marker date="1559754090806" expanded="true" signature="8785:10098" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="8968:9569" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="9586:10088" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="10108:10448" ph="/* This event handler deals with Frambebuffer Updates coming from the host. An ... */" />
+                <marker date="1559754090806" expanded="true" signature="10510:10739" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="10749:11356" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+                <marker date="1559754090806" expanded="true" signature="11397:11513" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="11523:12244" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+                <marker date="1559754090806" expanded="true" signature="12300:12426" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="12436:13269" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+                <marker date="1559754090806" expanded="true" signature="13338:13472" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="13482:14172" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+                <marker date="1559754090806" expanded="true" signature="14226:14296" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="14306:15110" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+                <marker date="1559754090806" expanded="true" signature="15179:15252" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="15262:16178" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+                <marker date="1559754090806" expanded="true" signature="16260:17598" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="16283:16459" ph="/* TODO: Should this be done asynchronously so as not to block the UI?  Since an event ... */" />
+                <marker date="1559754090806" expanded="true" signature="17172:17442" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="17459:17588" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="17608:18076" ph="/// Authenticate with the VNC Host using a user supplied password. ... " />
+                <marker date="1559754090806" expanded="true" signature="18127:18685" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="18695:18957" ph="/* True if view-only mode is desired (no mouse/keyboard events will be sent). ... */" />
+                <marker date="1559754090806" expanded="true" signature="18986:19089" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="19091:19727" ph="/*        /// Set the remote desktop's scaling mode. ... */" />
+                <marker date="1559754090806" expanded="true" signature="19862:19981" ph="/* Determines whether to use desktop scaling or leave it normal and clip. ... */" />
+                <marker date="1559754090806" expanded="true" signature="20008:20075" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="20211:20334" ph="/* Sets the number of Bits Per Pixel for the Framebuffer--one of 8, 16, or 32 ... */" />
+                <marker date="1559754090806" expanded="true" signature="20366:20469" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="20594:20706" ph="/* Sets the Colour Depth of the Framebuffer--one of 3, 6, 8, or 16 ... */" />
+                <marker date="1559754090806" expanded="true" signature="20731:20820" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="20830:21238" ph="/// After protocol-level initialization and connecting is complete, the local GUI objects have to be set-up, and  ... " />
+                <marker date="1559754090806" expanded="true" signature="21272:23123" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="21512:21692" ph="/* Create a buffer on which updated rectangles will be drawn and draw a &quot;please wait...&quot; ... */" />
+                <marker date="1559754090806" expanded="true" signature="22175:23113" ph="/* Handles special keys. Must be adapted. ... */" />
+                <marker date="1559754090806" expanded="true" signature="23177:23942" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="23231:23932" ph="/* Set mouse pointer according to new state ... */" />
+                <marker date="1559754090806" expanded="true" signature="23952:24298" ph="/// Creates and initially sets-up the local bitmap that will represent the remote desktop image. ... " />
+                <marker date="1559754090806" expanded="true" signature="24334:25016" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="24394:24657" ph="/* Create a new bitmap to cache locally the remote desktop image.  Use the geometry of the ... */" />
+                <marker date="1559754090806" expanded="true" signature="24770:25006" ph="/* Draw a &quot;please wait...&quot; message on the local desktop until the first ... */" />
+                <marker date="1559754090806" expanded="true" signature="25026:26045" ph="/* Draws the given message (white text) on the local desktop (all black). ... */" />
+                <marker date="1559754090806" expanded="true" signature="26055:26376" ph="/// Stops the remote host from sending further updates and disconnects. ... " />
+                <marker date="1559754090806" expanded="true" signature="26409:26686" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="26705:26882" ph="/// Fills the remote server's clipboard with text. ... " />
+                <marker date="1559754090806" expanded="true" signature="26945:27007" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="27198:27570" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="27414:27528" ph="/* See if either of the bitmaps used need clean-up. ... */" />
+                <marker date="1559754090806" expanded="true" signature="27576:28122" ph="/* protected void WndProc(ref Message m) ... */" />
+                <marker date="1559754090806" expanded="true" signature="28129:29555" ph="/* We do not want paint events on Windows Forms ... */" />
+                <marker date="1559754090806" expanded="true" signature="29558:30282" ph="/* We do not want resize events on Windows Forms ... */" />
+                <marker date="1559754090806" expanded="true" signature="30337:30994" ph="/*        /// Draws an image onto the control in a size-aware way. ... */" />
+                <marker date="1559754090806" expanded="true" signature="31004:31275" ph="/// RemoteDesktop listens for ConnectionLost events from the VncClient object. ... " />
+                <marker date="1559754090806" expanded="true" signature="31348:31767" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="31371:31624" ph="/* If the remote host dies, and there are attempts to write ... */" />
+                <marker date="1559754090806" expanded="true" signature="31924:31978" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="32021:32102" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="32112:32423" ph="/// Dispatches the ConnectionLost event if any targets have registered. ... " />
+                <marker date="1559754090806" expanded="true" signature="32463:32542" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="32552:32931" ph="/// Dispatches the ConnectComplete event if any targets have registered. ... " />
+                <marker date="1559754090806" expanded="true" signature="32990:33056" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="33067:36584" ph="/* WE WILL NOT BE USING MOUSE SO WE WILL NEITHER HANDLE MOUSE EVENTS NOR USE WINFORMS. ... */" />
+                <marker date="1559754090806" expanded="true" signature="36694:38760" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="38864:40306" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="39005:39288" ph="/* Windows sends the uppercase letter when the user presses a hotkey ... */" />
+                <marker date="1559754090806" expanded="true" signature="40361:41032" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="40400:41022" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="41184:43537" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="43644:44499" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="43948:44352" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="44509:45075" ph="/// Sends a keyboard combination that would otherwise be reserved for the client PC. ... " />
+                <marker date="1559754090806" expanded="true" signature="45129:45190" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="45200:45828" ph="/// Sends a keyboard combination that would otherwise be reserved for the client PC. ... " />
+                <marker date="1559754090806" expanded="true" signature="45897:47135" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="45956:46240" ph="/* For all of these I am sending the key presses manually instead of calling ... */" />
+                <marker date="1559754090806" expanded="true" signature="46266:47125" ph="{...}" />
+                <marker date="1559754090806" expanded="true" signature="47145:47486" ph="/// Given a list of keysym values, sends a key press for each, then a release. ... " />
+                <marker date="1559754090806" expanded="true" signature="47544:47944" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VncSharp/NativeMethods.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
+              <folding>
+                <marker date="1559735014339" expanded="false" signature="6:51" ph="..." />
+                <marker date="1559735014339" expanded="true" signature="71:6731" ph="{...}" />
+                <marker date="1559735014339" expanded="true" signature="111:6729" ph="{...}" />
+                <marker date="1559735014339" expanded="true" signature="126:2398" ph="Functions" />
+                <marker date="1559735014339" expanded="false" signature="2408:2557" ph="Delegates" />
+                <marker date="1559735014339" expanded="false" signature="2567:3675" ph="Structures" />
+                <marker date="1559735014339" expanded="true" signature="2669:2861" ph="{...}" />
+                <marker date="1559735014339" expanded="true" signature="2935:3081" ph="{...}" />
+                <marker date="1559735014339" expanded="true" signature="3163:3655" ph="{...}" />
+                <marker date="1559735014339" expanded="true" signature="3208:3300" ph="{...}" />
+                <marker date="1559735014339" expanded="false" signature="3685:6674" ph="Constants" />
+                <marker date="1559735014339" expanded="false" signature="4220:6654" ph="Virtual Keys" />
               </folding>
             </state>
           </provider>
@@ -123,19 +168,31 @@
     <findStrings>
       <find>.targets</find>
       <find>Impo</find>
+      <find>Connect</find>
+      <find>#endif</find>
+      <find>viewonly</find>
+      <find>viewOnly</find>
+      <find>ToAscii</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/VncSharp/Encodings/HextileRectangle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VncSharp/RfbProtocol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VncSharp/RemoteDesktop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VncSharp/VncClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VncSharp/zlib.NET/InfTree.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VncSharp/VncClippedDesktopPolicy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VncSharp/NativeMethods.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/VncSharp/VncSharp.csproj" />
         <option value="$PROJECT_DIR$/VncSharp/VncClient.cs" />
+        <option value="$PROJECT_DIR$/VncSharp/RemoteDesktop.cs" />
       </list>
     </option>
   </component>
@@ -151,6 +208,7 @@
     </navigator>
     <panes>
       <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -163,12 +221,17 @@
               <item name="VncSharp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="VncSharp" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="VncSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="VncSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -178,7 +241,8 @@
     <property name="last_opened_file_path" value="D:/Programas/Unity Editor/2017.4.17f1/Editor/Data/Mono/lib/mono/2.0/System.Drawing.dll" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -204,12 +268,21 @@
       <updated>1559735073164</updated>
       <workItem from="1559735077371" duration="133000" />
       <workItem from="1559735221488" duration="1390000" />
-      <workItem from="1559738538429" duration="39000" />
+      <workItem from="1559738538429" duration="646000" />
+      <workItem from="1559748163731" duration="5957000" />
     </task>
+    <task id="LOCAL-00001" summary="First adaptation of half of Remote Desktop.">
+      <created>1559751055878</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559751055878</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1562000" />
+    <option name="totallyTimeSpent" value="8126000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -224,13 +297,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1945629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -243,8 +316,8 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" sideWeight="0.4989339" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50159913" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" sideWeight="0.49840087" visible="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -259,6 +332,10 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First adaptation of half of Remote Desktop." />
+    <option name="LAST_COMMIT_MESSAGE" value="First adaptation of half of Remote Desktop." />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -280,10 +357,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/VncSharp/VncClippedDesktopPolicy.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <marker date="1559735014346" expanded="true" signature="0:790" ph="/* VncSharp - .NET VNC Client Library ... */" />
+            <marker date="1559735014346" expanded="true" signature="879:4354" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="883:965" ph="/// A clipped version of VncDesktopTransformPolicy. ... " />
+            <marker date="1559735014346" expanded="true" signature="1038:4352" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="1203:1223" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="1264:1317" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="1362:1570" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="1382:1563" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="1633:2244" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="1758:1869" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="2026:2136" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="2328:2966" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="2430:2537" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="2692:2801" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="3037:3690" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="3060:3189" ph="/* See if the image needs to be clipped (i.e., it is too big for the ... */" />
+            <marker date="1559735014346" expanded="true" signature="3267:3345" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="3464:3544" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="3749:4234" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="3883:3982" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="4069:4191" ph="{...}" />
+            <marker date="1559735014346" expanded="true" signature="4298:4346" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VncSharp/VncClient.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="392" column="86" selection-start-line="392" selection-start-column="86" selection-end-line="392" selection-end-column="86" />
+        <state relative-caret-position="105">
+          <caret line="74" column="78" lean-forward="true" selection-start-line="74" selection-end-line="75" />
           <folding>
             <marker date="1559738576487" expanded="true" signature="0:790" ph="/* VncSharp - .NET VNC Client Library ... */" />
             <marker date="1559738576487" expanded="false" signature="798:980" ph="..." />
@@ -378,6 +486,149 @@
             <marker date="1559738576487" expanded="true" signature="22216:22397" ph="{...}" />
             <marker date="1559738576487" expanded="true" signature="22228:22356" ph="{...}" />
             <marker date="1559738576487" expanded="true" signature="22363:22393" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VncSharp/NativeMethods.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
+          <folding>
+            <marker date="1559735014339" expanded="false" signature="6:51" ph="..." />
+            <marker date="1559735014339" expanded="true" signature="71:6731" ph="{...}" />
+            <marker date="1559735014339" expanded="true" signature="111:6729" ph="{...}" />
+            <marker date="1559735014339" expanded="true" signature="126:2398" ph="Functions" />
+            <marker date="1559735014339" expanded="false" signature="2408:2557" ph="Delegates" />
+            <marker date="1559735014339" expanded="false" signature="2567:3675" ph="Structures" />
+            <marker date="1559735014339" expanded="true" signature="2669:2861" ph="{...}" />
+            <marker date="1559735014339" expanded="true" signature="2935:3081" ph="{...}" />
+            <marker date="1559735014339" expanded="true" signature="3163:3655" ph="{...}" />
+            <marker date="1559735014339" expanded="true" signature="3208:3300" ph="{...}" />
+            <marker date="1559735014339" expanded="false" signature="3685:6674" ph="Constants" />
+            <marker date="1559735014339" expanded="false" signature="4220:6654" ph="Virtual Keys" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VncSharp/RemoteDesktop.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <marker date="1559754090806" expanded="true" signature="0:790" ph="/* VncSharp - .NET VNC Client Library ... */" />
+            <marker date="1559754090806" expanded="true" signature="808:1141" ph="..." />
+            <marker date="1559754090806" expanded="true" signature="1142:1232" ph="/* ReSharper disable ArrangeAccessorOwnerBody ... */" />
+            <marker date="1559754090806" expanded="true" signature="1311:47952" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="1318:1459" ph="/// Event Handler delegate declaration used by events that signal successful connection with the server. ... " />
+            <marker date="1559754090806" expanded="true" signature="1549:1975" ph="/// When connecting to a VNC Host, a password will sometimes be required.  Therefore a password must be obtained  ... " />
+            <marker date="1559754090806" expanded="true" signature="2032:2284" ph="/// SpecialKeys is a list of the various keyboard combinations that overlap with the client-side and make it ... " />
+            <marker date="1559754090806" expanded="true" signature="2312:2402" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="2478:2842" ph="/* The RemoteDesktop control takes care of all the necessary RFB Protocol and GUI handling, including mouse and  ... */" />
+            <marker date="1559754090806" expanded="true" signature="2880:47950" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="2976:3154" ph="/* Raised after a successful call to the Connect() method.  Includes information for updating the local display  ... */" />
+            <marker date="1559754090806" expanded="true" signature="3297:3392" ph="/* Raised when the VNC Host drops the connection. ... */" />
+            <marker date="1559754090806" expanded="true" signature="3540:3652" ph="/* Raised when the VNC Host sends text to the client's clipboard.  ... */" />
+            <marker date="1559754090806" expanded="true" signature="3714:4014" ph="/// Points to a Function capable of obtaining a user's password.  By default this means using the PasswordDialog. ... " />
+            <marker date="1559754090806" expanded="true" signature="4023:4138" ph="/* ReSharper disable once MemberCanBePrivate.Global ... */" />
+            <marker date="1559754090806" expanded="true" signature="4933:5052" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="5084:5353" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="5108:5301" ph="/* Users of the control can choose to use their own Authentication GetPassword() method via the delegate above.   ... */" />
+            <marker date="1559754090806" expanded="true" signature="5471:5634" ph="/* The port number used by the VNC Host (typically 5900). ... */" />
+            <marker date="1559754090806" expanded="true" signature="5661:5913" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="5720:5903" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="5923:6084" ph="/// True if the RemoteDesktop is connected and authenticated (if necessary) with a remote VNC Host; otherwise Fal ... " />
+            <marker date="1559754090806" expanded="true" signature="6176:6256" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="6266:6659" ph="/* This is a hack to get around the issue of DesignMode returning ... */" />
+            <marker date="1559754090806" expanded="true" signature="6691:6785" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="6717:6775" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="6795:6933" ph="/// Returns a more appropriate default size for initial drawing of the control at design time ... " />
+            <marker date="1559754090806" expanded="true" signature="6966:7033" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="7100:7216" ph="/* The name of the remote desktop, or &quot;Disconnected&quot; if not connected. ... */" />
+            <marker date="1559754090806" expanded="true" signature="7247:7339" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="7349:7430" ph="/// The image of the remote desktop. ... " />
+            <marker date="1559754090806" expanded="true" signature="7459:7515" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="7525:8154" ph="/// Get a complete update of the entire screen from the remote host. ... " />
+            <marker date="1559754090806" expanded="true" signature="8193:8291" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="8301:8731" ph="/// Insures the state of the connection to the server, either Connected or Not Connected depending on the value o ... " />
+            <marker date="1559754090806" expanded="true" signature="8785:10098" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="8968:9569" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="9586:10088" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="10108:10448" ph="/* This event handler deals with Frambebuffer Updates coming from the host. An ... */" />
+            <marker date="1559754090806" expanded="true" signature="10510:10739" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="10749:11356" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+            <marker date="1559754090806" expanded="true" signature="11397:11513" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="11523:12244" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+            <marker date="1559754090806" expanded="true" signature="12300:12426" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="12436:13269" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+            <marker date="1559754090806" expanded="true" signature="13338:13472" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="13482:14172" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+            <marker date="1559754090806" expanded="true" signature="14226:14296" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="14306:15110" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+            <marker date="1559754090806" expanded="true" signature="15179:15252" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="15262:16178" ph="/// Connect to a VNC Host and determine whether or not the server requires a password. ... " />
+            <marker date="1559754090806" expanded="true" signature="16260:17598" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="16283:16459" ph="/* TODO: Should this be done asynchronously so as not to block the UI?  Since an event ... */" />
+            <marker date="1559754090806" expanded="true" signature="17172:17442" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="17459:17588" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="17608:18076" ph="/// Authenticate with the VNC Host using a user supplied password. ... " />
+            <marker date="1559754090806" expanded="true" signature="18127:18685" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="18695:18957" ph="/* True if view-only mode is desired (no mouse/keyboard events will be sent). ... */" />
+            <marker date="1559754090806" expanded="true" signature="18986:19089" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="19091:19727" ph="/*        /// Set the remote desktop's scaling mode. ... */" />
+            <marker date="1559754090806" expanded="true" signature="19862:19981" ph="/* Determines whether to use desktop scaling or leave it normal and clip. ... */" />
+            <marker date="1559754090806" expanded="true" signature="20008:20075" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="20211:20334" ph="/* Sets the number of Bits Per Pixel for the Framebuffer--one of 8, 16, or 32 ... */" />
+            <marker date="1559754090806" expanded="true" signature="20366:20469" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="20594:20706" ph="/* Sets the Colour Depth of the Framebuffer--one of 3, 6, 8, or 16 ... */" />
+            <marker date="1559754090806" expanded="true" signature="20731:20820" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="20830:21238" ph="/// After protocol-level initialization and connecting is complete, the local GUI objects have to be set-up, and  ... " />
+            <marker date="1559754090806" expanded="true" signature="21272:23123" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="21512:21692" ph="/* Create a buffer on which updated rectangles will be drawn and draw a &quot;please wait...&quot; ... */" />
+            <marker date="1559754090806" expanded="true" signature="22175:23113" ph="/* Handles special keys. Must be adapted. ... */" />
+            <marker date="1559754090806" expanded="true" signature="23177:23942" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="23231:23932" ph="/* Set mouse pointer according to new state ... */" />
+            <marker date="1559754090806" expanded="true" signature="23952:24298" ph="/// Creates and initially sets-up the local bitmap that will represent the remote desktop image. ... " />
+            <marker date="1559754090806" expanded="true" signature="24334:25016" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="24394:24657" ph="/* Create a new bitmap to cache locally the remote desktop image.  Use the geometry of the ... */" />
+            <marker date="1559754090806" expanded="true" signature="24770:25006" ph="/* Draw a &quot;please wait...&quot; message on the local desktop until the first ... */" />
+            <marker date="1559754090806" expanded="true" signature="25026:26045" ph="/* Draws the given message (white text) on the local desktop (all black). ... */" />
+            <marker date="1559754090806" expanded="true" signature="26055:26376" ph="/// Stops the remote host from sending further updates and disconnects. ... " />
+            <marker date="1559754090806" expanded="true" signature="26409:26686" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="26705:26882" ph="/// Fills the remote server's clipboard with text. ... " />
+            <marker date="1559754090806" expanded="true" signature="26945:27007" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="27198:27570" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="27414:27528" ph="/* See if either of the bitmaps used need clean-up. ... */" />
+            <marker date="1559754090806" expanded="true" signature="27576:28122" ph="/* protected void WndProc(ref Message m) ... */" />
+            <marker date="1559754090806" expanded="true" signature="28129:29555" ph="/* We do not want paint events on Windows Forms ... */" />
+            <marker date="1559754090806" expanded="true" signature="29558:30282" ph="/* We do not want resize events on Windows Forms ... */" />
+            <marker date="1559754090806" expanded="true" signature="30337:30994" ph="/*        /// Draws an image onto the control in a size-aware way. ... */" />
+            <marker date="1559754090806" expanded="true" signature="31004:31275" ph="/// RemoteDesktop listens for ConnectionLost events from the VncClient object. ... " />
+            <marker date="1559754090806" expanded="true" signature="31348:31767" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="31371:31624" ph="/* If the remote host dies, and there are attempts to write ... */" />
+            <marker date="1559754090806" expanded="true" signature="31924:31978" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="32021:32102" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="32112:32423" ph="/// Dispatches the ConnectionLost event if any targets have registered. ... " />
+            <marker date="1559754090806" expanded="true" signature="32463:32542" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="32552:32931" ph="/// Dispatches the ConnectComplete event if any targets have registered. ... " />
+            <marker date="1559754090806" expanded="true" signature="32990:33056" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="33067:36584" ph="/* WE WILL NOT BE USING MOUSE SO WE WILL NEITHER HANDLE MOUSE EVENTS NOR USE WINFORMS. ... */" />
+            <marker date="1559754090806" expanded="true" signature="36694:38760" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="38864:40306" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="39005:39288" ph="/* Windows sends the uppercase letter when the user presses a hotkey ... */" />
+            <marker date="1559754090806" expanded="true" signature="40361:41032" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="40400:41022" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="41184:43537" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="43644:44499" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="43948:44352" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="44509:45075" ph="/// Sends a keyboard combination that would otherwise be reserved for the client PC. ... " />
+            <marker date="1559754090806" expanded="true" signature="45129:45190" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="45200:45828" ph="/// Sends a keyboard combination that would otherwise be reserved for the client PC. ... " />
+            <marker date="1559754090806" expanded="true" signature="45897:47135" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="45956:46240" ph="/* For all of these I am sending the key presses manually instead of calling ... */" />
+            <marker date="1559754090806" expanded="true" signature="46266:47125" ph="{...}" />
+            <marker date="1559754090806" expanded="true" signature="47145:47486" ph="/// Given a list of keysym values, sends a key press for each, then a release. ... " />
+            <marker date="1559754090806" expanded="true" signature="47544:47944" ph="{...}" />
           </folding>
         </state>
       </provider>

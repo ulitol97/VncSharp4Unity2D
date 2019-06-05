@@ -29,13 +29,10 @@
         <e p="KeyboardHook.cs" t="Include" />
         <e p="NativeMethods.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
-        <e p="PasswordDialog.cs" t="Include" />
-        <e p="PasswordDialog.resx" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="RemoteDesktop.cs" t="Include" />
-        <e p="RemoteDesktop.resx" t="Include" />
         <e p="Resources" t="Include">
           <e p="screenshot.png" t="Include" />
           <e p="vnccursor.cur" t="Include" />
@@ -43,13 +40,9 @@
         </e>
         <e p="RfbProtocol.cs" t="Include" />
         <e p="VncClient.cs" t="Include" />
-        <e p="VncClippedDesktopPolicy.cs" t="Include" />
         <e p="VncDefaultInputPolicy.cs" t="Include" />
-        <e p="VncDesignModeDesktopPolicy.cs" t="Include" />
-        <e p="VncDesktopTransformPolicy.cs" t="Include" />
         <e p="VncEventArgs.cs" t="Include" />
         <e p="VncProtocolException.cs" t="Include" />
-        <e p="VncScaledDesktopPolicy.cs" t="Include" />
         <e p="VncSharp.csproj" t="IncludeRecursive" />
         <e p="VncSharpKey.snk" t="Include" />
         <e p="vncviewer.ico" t="Include" />
