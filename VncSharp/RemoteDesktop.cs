@@ -25,7 +25,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using static System.Diagnostics.Debug;
 using static System.Reflection.Assembly;
 // ReSharper disable ArrangeAccessorOwnerBody
@@ -62,7 +62,7 @@ namespace VncSharp
     /// <summary>
     /// The RemoteDesktop control takes care of all the necessary RFB Protocol and GUI handling, including mouse and keyboard support, as well as requesting and processing screen updates from the remote VNC host.  Most users will choose to use the RemoteDesktop control alone and not use any of the other protocol classes directly.
     /// </summary>
-    public sealed class RemoteDesktop : Panel
+    public sealed class RemoteDesktop
     {
         [Description("Raised after a successful call to the Connect() method.")]
         /// <summary>
@@ -90,15 +90,20 @@ namespace VncSharp
         public AuthenticateDelegate GetPassword;
         
         private Bitmap desktop; // Internal representation of remote image.
-        private readonly Image designModeDesktop; // Used when painting control in VS.NET designer
         private VncClient vnc; // The Client object handling all protocol-level interaction
+        
+        private string password = "";
         private int port = 5900; // The port to connect to on remote host (5900 is default)
+        private int display = 1;
+        
         private bool passwordPending; // After Connect() is called, a password might be required.
-        private VncDesktopTransformPolicy desktopPolicy;
         private RuntimeState state = RuntimeState.Disconnected;
         private bool viewOnlyMode = false;
         private int bitsPerPixel = 0;
         private int depth = 0;
+
+
+        
 
         //private KeyboardHook _keyboardHook = new KeyboardHook();
 
@@ -112,28 +117,10 @@ namespace VncSharp
 
         public RemoteDesktop()
         {
-            // Since this control will be updated constantly, and all graphics will be drawn by this class,
-            // set the control's painting for best user-drawn performance.
-            SetStyle(ControlStyles.AllPaintingInWmPaint |
-                     ControlStyles.UserPaint |
-                     ControlStyles.DoubleBuffer |
-                     ControlStyles.Selectable | // BUG FIX (Edward Cooke) -- Adding Control.Select() support
-                     ControlStyles.ResizeRedraw |
-                     ControlStyles.Opaque,
-                true);
-
-            // Show a screenshot of a Windows desktop from the manifest and cache to be used when painting in design mode
-            // ReSharper disable once AssignNullToNotNullAttribute
-            designModeDesktop =
-                Image.FromStream(GetAssembly(GetType()).GetManifestResourceStream("VncSharp.Resources.screenshot.png"));
-
-            // Use a simple desktop policy for design mode.  This will be replaced in Connect()
-            desktopPolicy = new VncDesignModeDesktopPolicy(this);
-            AutoScroll = desktopPolicy.AutoScroll;
-            AutoScrollMinSize = desktopPolicy.AutoScrollMinSize;
 
             // Users of the control can choose to use their own Authentication GetPassword() method via the delegate above.  This is a default only.
-            GetPassword = PasswordDialog.GetPassword;
+            // GetPassword = PasswordDialog.GetPassword;
+            GetPassword = () => password;
         }
 
         [DefaultValue(5900)]
@@ -171,18 +158,6 @@ namespace VncSharp
         {
             get
             {
-                if (base.DesignMode)
-                {
-                    return true;
-                }
-                var parent = Parent;
-
-                while (parent != null)
-                {
-                    if (parent.Site != null && parent.Site.DesignMode)
-                        return true;
-                    parent = parent.Parent;
-                }
                 return false;
             }
         }
@@ -190,7 +165,7 @@ namespace VncSharp
         /// <summary>
         /// Returns a more appropriate default size for initial drawing of the control at design time
         /// </summary>
-        protected override Size DefaultSize
+        private Size DefaultSize
         {
             get { return new Size(400, 200); }
         }
@@ -230,7 +205,7 @@ namespace VncSharp
         /// <summary>
         /// Insures the state of the connection to the server, either Connected or Not Connected depending on the value of the connected argument.
         /// </summary>
-        /// <param name="connected">True if the connection must be established, otherwise False.</param>
+        /// <param name="connected">True if the connection must be established already, otherwise False.</param>
         /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is in the wrong state.</exception>
         private void InsureConnection(bool connected)
         {
@@ -263,14 +238,13 @@ namespace VncSharp
             }
         }
 
-        // This event handler deals with Frambebuffer Updates coming from the host. An
+        // This event handler deals with Framebuffer Updates coming from the host. An
         // EncodedRectangle object is passed via the VncEventArgs (actually an IDesktopUpdater
         // object so that *only* Draw() can be called here--Decode() is done elsewhere).
         // The VncClient object handles thread marshalling onto the UI thread.
         private void VncUpdate(object sender, VncEventArgs e)
         {
             e.DesktopUpdater.Draw(desktop);
-            Invalidate(desktopPolicy.AdjustUpdateRectangle(e.DesktopUpdater.UpdateRectangle));
 
             if (state != RuntimeState.Connected) return;
 
@@ -287,8 +261,8 @@ namespace VncSharp
         /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
         public void Connect(string host)
         {
-            // Use Display 0 by default.
-            Connect(host, 0);
+            // Use Display defined, (display 1 by default).
+            Connect(host, display);
         }
 
         /// <summary>
@@ -301,8 +275,8 @@ namespace VncSharp
         /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
         public void Connect(string host, bool viewOnly)
         {
-            // Use Display 0 by default.
-            Connect(host, 0, viewOnly);
+            // Use Display defined, (display 1 by default).
+            Connect(host, display, viewOnly);
         }
 
         /// <summary>
@@ -316,8 +290,8 @@ namespace VncSharp
         /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
         public void Connect(string host, bool viewOnly, bool scaled)
         {
-            // Use Display 0 by default.
-            Connect(host, 0, viewOnly, scaled);
+            // Use Display defined, (display 1 by default).
+            Connect(host, display, viewOnly, scaled);
         }
 
         /// <summary>
@@ -376,7 +350,7 @@ namespace VncSharp
 
             passwordPending = vnc.Connect(host, display, VncPort, viewOnly);
 
-            SetScalingMode(scaled);
+//            SetScalingMode(scaled);
 
             if (passwordPending)
             {
@@ -425,22 +399,22 @@ namespace VncSharp
             set { viewOnlyMode = value; }
         }
 
-        /// <summary>
-        /// Set the remote desktop's scaling mode.
-        /// </summary>
-        /// <param name="scaled">Determines whether to use desktop scaling or leave it normal and clip.</param>
-        private void SetScalingMode(bool scaled)
-        {
-            if (scaled)
-                desktopPolicy = new VncScaledDesktopPolicy(vnc, this);
-            else
-                desktopPolicy = new VncClippedDesktopPolicy(vnc, this);
-
-            AutoScroll = desktopPolicy.AutoScroll;
-            AutoScrollMinSize = desktopPolicy.AutoScrollMinSize;
-
-            Invalidate();
-        }
+//        /// <summary>
+//        /// Set the remote desktop's scaling mode.
+//        /// </summary>
+//        /// <param name="scaled">Determines whether to use desktop scaling or leave it normal and clip.</param>
+//        private void SetScalingMode(bool scaled)
+//        {
+//            if (scaled)
+//                desktopPolicy = new VncScaledDesktopPolicy(vnc, this);
+//            else
+//                desktopPolicy = new VncClippedDesktopPolicy(vnc, this);
+//
+//            AutoScroll = desktopPolicy.AutoScroll;
+//            AutoScrollMinSize = desktopPolicy.AutoScrollMinSize;
+//
+//            Invalidate();
+//        }
 
         [DefaultValue(false)]
         [Description("Determines whether to use desktop scaling or leave it normal and clip")]
@@ -449,8 +423,8 @@ namespace VncSharp
         /// </summary>
         public bool Scaled
         {
-            get { return desktopPolicy is VncScaledDesktopPolicy; }
-            set { SetScalingMode(value); }
+            get { return false; }
+            
         }
 
         [DefaultValue(0)]
@@ -495,17 +469,17 @@ namespace VncSharp
                 vnc.Framebuffer.Height,
                 vnc.Framebuffer.DesktopName));
 
-            // Refresh scroll properties
-            AutoScrollMinSize = desktopPolicy.AutoScrollMinSize;
 
             // Start getting updates from the remote host (vnc.StartUpdates will begin a worker thread).
             vnc.VncUpdate += VncUpdate;
             vnc.StartUpdates();
 
-            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_LWIN, true);
-            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_RWIN, true);
-            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_ESCAPE, KeyboardHook.ModifierKeys.Control, true);
-            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_TAB, KeyboardHook.ModifierKeys.Alt, true);
+//            Handles special keys. Must be adapted.
+
+//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_LWIN, true);
+//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_RWIN, true);
+//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_ESCAPE, KeyboardHook.ModifierKeys.Control, true);
+//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_TAB, KeyboardHook.ModifierKeys.Alt, true);
 
             // TODO: figure out why Alt-Shift isn't blocked
             //KeyboardHook.RequestKeyNotification(this.Handle, NativeMethods.VK_SHIFT, KeyboardHook.ModifierKeys.Alt, true);
