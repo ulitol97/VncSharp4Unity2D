@@ -388,7 +388,9 @@ namespace VncSharp
                             // TODO: consider gathering all update rectangles in a batch and *then* posting the event back to the main thread.
                             for (var i = 0; i < rectangles; ++i) {
                                 // Get the update rectangle's info
-                                rfb.ReadFramebufferUpdateRectHeader(out Rectangle rectangle, out int enc);
+                                Rectangle rectangle;
+                                int enc;
+                                rfb.ReadFramebufferUpdateRectHeader(out rectangle, out enc);
 
                                 // Build a derived EncodedRectangle type and pull-down all the pixel info
                                 var er = factory.Build(rectangle, enc);

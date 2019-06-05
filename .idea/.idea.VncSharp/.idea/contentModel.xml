@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Ragna\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Ragna\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_VncSharp.180553644.00" t="ExcludeRecursive" />
+    <e p="D:\Eduardo\Documents\Uni\1 - Grado\4o\TFG\Projects\VNC\VncSharpCustomLibrary" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="VncSharp" t="IncludeRecursive">
+        <e p="Bin" t="ExcludeRecursive" />
+        <e p="ConnectEventArgs.cs" t="Include" />
+        <e p="EncodedRectangleFactory.cs" t="Include" />
+        <e p="Encodings" t="Include">
+          <e p="CopyRectRectangle.cs" t="Include" />
+          <e p="CoRreRectangle.cs" t="Include" />
+          <e p="CPixelReader.cs" t="Include" />
+          <e p="EncodedRectangle.cs" t="Include" />
+          <e p="HextileRectangle.cs" t="Include" />
+          <e p="PixelReader.cs" t="Include" />
+          <e p="PixelReader16.cs" t="Include" />
+          <e p="PixelReader32.cs" t="Include" />
+          <e p="PixelReader8.cs" t="Include" />
+          <e p="RawRectangle.cs" t="Include" />
+          <e p="RreRectangle.cs" t="Include" />
+          <e p="ZrleRectangle.cs" t="Include" />
+        </e>
+        <e p="Framebuffer.cs" t="Include" />
+        <e p="IDesktopUpdater.cs" t="Include" />
+        <e p="IVncInputPolicy.cs" t="Include" />
+        <e p="KeyboardHook.cs" t="Include" />
+        <e p="NativeMethods.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="PasswordDialog.cs" t="Include" />
+        <e p="PasswordDialog.resx" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="RemoteDesktop.cs" t="Include" />
+        <e p="RemoteDesktop.resx" t="Include" />
+        <e p="Resources" t="Include">
+          <e p="screenshot.png" t="Include" />
+          <e p="vnccursor.cur" t="Include" />
+          <e p="vncviewer.ico" t="Include" />
+        </e>
+        <e p="RfbProtocol.cs" t="Include" />
+        <e p="VncClient.cs" t="Include" />
+        <e p="VncClippedDesktopPolicy.cs" t="Include" />
+        <e p="VncDefaultInputPolicy.cs" t="Include" />
+        <e p="VncDesignModeDesktopPolicy.cs" t="Include" />
+        <e p="VncDesktopTransformPolicy.cs" t="Include" />
+        <e p="VncEventArgs.cs" t="Include" />
+        <e p="VncProtocolException.cs" t="Include" />
+        <e p="VncScaledDesktopPolicy.cs" t="Include" />
+        <e p="VncSharp.csproj" t="IncludeRecursive" />
+        <e p="VncSharpKey.snk" t="Include" />
+        <e p="vncviewer.ico" t="Include" />
+        <e p="VncViewInputPolicy.cs" t="Include" />
+        <e p="zlib.NET" t="Include">
+          <e p="Adler32.cs" t="Include" />
+          <e p="Deflate.cs" t="Include" />
+          <e p="history.txt" t="Include" />
+          <e p="InfBlocks.cs" t="Include" />
+          <e p="InfCodes.cs" t="Include" />
+          <e p="Inflate.cs" t="Include" />
+          <e p="InfTree.cs" t="Include" />
+          <e p="license.txt" t="Include" />
+          <e p="readme.txt" t="Include" />
+          <e p="StaticTree.cs" t="Include" />
+          <e p="SupportClass.cs" t="Include" />
+          <e p="Tree.cs" t="Include" />
+          <e p="ZInputStream.cs" t="Include" />
+          <e p="Zlib.cs" t="Include" />
+          <e p="ZOutputStream.cs" t="Include" />
+          <e p="ZStream.cs" t="Include" />
+          <e p="ZStreamException.cs" t="Include" />
+        </e>
+      </e>
+      <e p="VncSharp.Nuget" t="IncludeRecursive">
+        <e p="VncSharp.Nuget.nuproj" t="IncludeRecursive" />
+      </e>
+      <e p="VncSharp.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
