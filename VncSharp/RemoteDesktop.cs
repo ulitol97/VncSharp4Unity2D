@@ -62,7 +62,7 @@ namespace VncSharp
     /// <summary>
     /// The RemoteDesktop control takes care of all the necessary RFB Protocol and GUI handling, including mouse and keyboard support, as well as requesting and processing screen updates from the remote VNC host.  Most users will choose to use the RemoteDesktop control alone and not use any of the other protocol classes directly.
     /// </summary>
-    public sealed class RemoteDesktop
+    public class RemoteDesktop
     {
         [Description("Raised after a successful call to the Connect() method.")]
         /// <summary>
