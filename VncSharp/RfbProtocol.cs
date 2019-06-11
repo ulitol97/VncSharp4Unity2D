@@ -133,6 +133,14 @@ namespace VncSharp
 		}
 
 		/// <summary>
+		/// Gets the underlying TcpClient used for connection.
+		/// </summary>
+		public TcpClient TcpClient
+		{
+			get { return tcp; }
+		}
+
+		/// <summary>
 		/// Gets or sets the proxy identifier to be send when using UltraVNC's repeater functionality
 		/// </summary>
 		/// <value>

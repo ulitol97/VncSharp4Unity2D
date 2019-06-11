@@ -59,6 +59,14 @@ namespace VncSharp
 		public Framebuffer Framebuffer { get; private set; }
 
 		/// <summary>
+		/// Gets the RfbProtocol object managing the underlying RFB protocol.
+		/// </summary>
+		public RfbProtocol RfbProtocol
+		{
+			get { return rfb; }
+		}
+
+		/// <summary>
 		/// Gets/Sets if full screen refresh is required (forced) from the connected server.
 		/// </summary>
 		public bool FullScreenRefresh { get; set; }

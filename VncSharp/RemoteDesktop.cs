@@ -16,24 +16,22 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #if DEBUG
-using System.Diagnostics;
 #endif
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
-using VncSharp.zlib.NET;
-using static System.Diagnostics.Debug;
-using static System.Reflection.Assembly;
+using VncSharp;
+
 // ReSharper disable ArrangeAccessorOwnerBody
 
 // ReSharper disable PossibleLossOfFraction
 #pragma warning disable 1587, 1584, 1711, 1572, 1581, 1580
 
-namespace VncSharp
+namespace VncSharp4Unity2D
 {
     /// <summary>
     /// Event Handler delegate declaration used by events that signal successful connection with the server.
@@ -115,8 +113,18 @@ namespace VncSharp
             Connected,
             Connecting
         }
-        
-        
+
+        public VncClient VncClient
+        {
+            get { return vnc;}
+        }
+
+        public bool Connected
+        {
+            get { return this.VncClient.RfbProtocol.TcpClient.Connected; }
+        }
+
+
         public RemoteDesktop()
         {
 
@@ -213,7 +221,7 @@ namespace VncSharp
         /// for the full screen, and not a portion of it.  It will not do the update while
         /// blocking.
         /// </remarks>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the Connected state.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the Connected state.  See <see cref="IsConnected" />.</exception>
         public void FullScreenUpdate()
         {
             InsureConnection(true);
@@ -276,7 +284,7 @@ namespace VncSharp
         /// <param name="host">The IP Address or Host Name of the VNC Host.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect(string host)
         {
             // Use Display defined, (display 1 by default).
@@ -290,7 +298,7 @@ namespace VncSharp
         /// <param name="viewOnly">Determines whether mouse and keyboard events will be sent to the host.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect(string host, bool viewOnly)
         {
             // Use Display defined, (display 1 by default).
@@ -305,7 +313,7 @@ namespace VncSharp
         /// <param name="scaled">Determines whether to use desktop scaling or leave it normal and clip.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect(string host, bool viewOnly, bool scaled)
         {
             // Use Display defined, (display 1 by default).
@@ -319,7 +327,7 @@ namespace VncSharp
         /// <param name="display">The Display number (used on Unix hosts).</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect(string host, int display)
         {
             Connect(host, display, viewOnlyMode);
@@ -333,7 +341,7 @@ namespace VncSharp
         /// <param name="viewOnly">Determines whether mouse and keyboard events will be sent to the host.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect(string host, int display, bool viewOnly)
         {
             Connect(host, display, viewOnly, false);
@@ -348,7 +356,7 @@ namespace VncSharp
         /// <param name="scaled">Determines whether to use desktop scaling or leave it normal and clip.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect(string host, int display, bool viewOnly, bool scaled)
         {
             // TODO: Should this be done asynchronously so as not to block the UI?  Since an event 
@@ -391,7 +399,7 @@ namespace VncSharp
         /// </summary>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         public void Connect()
         {
             // TODO: Should this be done asynchronously so as not to block the UI?  Since an event 
@@ -429,7 +437,7 @@ namespace VncSharp
         /// <summary>
         /// Authenticate with the VNC Host using a user supplied password.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
         /// <exception cref="System.NullReferenceException">Thrown if the password is null.</exception>
         /// <param name="password">The user's password.</param>
         private void Authenticate(string password)
@@ -511,7 +519,7 @@ namespace VncSharp
         /// <summary>
         /// After protocol-level initialization and connecting is complete, the local GUI objects have to be set-up, and requests for updates to the remote host begun.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already in the Connected state.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>		
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already in the Connected state.  See <see cref="IsConnected" />.</exception>		
         private void Initialize()
         {
             // Finish protocol handshake with host now that authentication is done.
@@ -574,7 +582,7 @@ namespace VncSharp
         /// <summary>
         /// Creates and initially sets-up the local bitmap that will represent the remote desktop image.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state. See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state. See <see cref="IsConnected" />.</exception>
         private void SetupDesktop()
         {
             InsureConnection(true);
@@ -617,7 +625,7 @@ namespace VncSharp
         /// <summary>
         /// Stops the remote host from sending further updates and disconnects.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state. See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state. See <see cref="IsConnected" />.</exception>
         public void Disconnect()
         {
             InsureConnection(true);
@@ -1080,7 +1088,7 @@ namespace VncSharp
         /// <param name="release">A boolean indicating whether the keys should be Pressed and then Released.</param>
         private void PressKeys(uint[] keys, bool release)
         {
-            Assert(keys != null, "keys[] cannot be null.");
+            Debug.Assert(keys != null, "keys[] cannot be null.");
 
             foreach (var u in keys)
                 vnc.WriteKeyboardEvent(u, true);
