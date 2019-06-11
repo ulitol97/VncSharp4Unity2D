@@ -91,10 +91,11 @@ namespace VncSharp
         
         private Bitmap desktop; // Internal representation of remote image.
         private VncClient vnc; // The Client object handling all protocol-level interaction
-        
-        private string password = "";
-        private int port = 5900; // The port to connect to on remote host (5900 is default)
-        private int display = 1;
+
+        private string host;
+        private int port; // The port to connect to on remote host (5900 is default)
+        private int display;
+        private string password;
         
         private bool passwordPending; // After Connect() is called, a password might be required.
         private RuntimeState state = RuntimeState.Disconnected;
@@ -114,13 +115,26 @@ namespace VncSharp
             Connected,
             Connecting
         }
-
+        
+        
         public RemoteDesktop()
         {
 
-            // Users of the control can choose to use their own Authentication GetPassword() method via the delegate above.  This is a default only.
-            // GetPassword = PasswordDialog.GetPassword;
+            // Delegate that retrieves the given password
             GetPassword = () => password;
+
+        }
+
+
+        public RemoteDesktop(string host, int port, int display, string password)
+        {
+            this.host = host;
+            this.port = port;
+            this.display = display;
+            this.password = password;
+            // Delegate that retrieves the given password
+            GetPassword = () => password;
+
         }
 
         [DefaultValue(5900)]
@@ -185,6 +199,10 @@ namespace VncSharp
         public Image Desktop
         {
             get { return desktop; }
+            set
+            {
+                desktop = (Bitmap)value;
+            }
         }
 
         /// <summary>
@@ -357,6 +375,47 @@ namespace VncSharp
                 // Server needs a password, so call which ever method is refered to by the GetPassword delegate.
                 var password = GetPassword();
 
+                if (password != null)
+                    Authenticate(password);
+            }
+            else
+            {
+                // No password needed, so go ahead and Initialize here
+                Initialize();
+            }
+        }
+        
+        
+        /// <summary>
+        /// Connect to a VNC Host and determine whether or not the server requires a password.
+        /// </summary>
+        /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="VncSharp.RemoteDesktop.IsConnected" />.</exception>
+        public void Connect()
+        {
+            // TODO: Should this be done asynchronously so as not to block the UI?  Since an event 
+            // indicates the end of the connection, maybe that would be a better design.
+            InsureConnection(false);
+
+            if (host == null) throw new ArgumentNullException(nameof(host));
+            if (display < 0)
+                throw new ArgumentOutOfRangeException(nameof(display), display,
+                    "Display number must be a positive integer.");
+
+            // Start protocol-level handling and determine whether a password is needed
+            vnc = new VncClient();
+            vnc.ConnectionLost += VncClientConnectionLost;
+            vnc.ServerCutText += VncServerCutText;
+            vnc.ViewOnly = viewOnlyMode;
+
+            passwordPending = vnc.Connect(host, display, VncPort, viewOnlyMode);
+
+//            SetScalingMode(scaled);
+
+            if (passwordPending)
+            {
+                
                 if (password != null)
                     Authenticate(password);
             }

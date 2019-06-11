@@ -8,7 +8,7 @@
     <ProjectGuid>{E0695F0F-0FAF-44BC-AE55-A1FCBFE70271}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VncSharp</RootNamespace>
+    <RootNamespace>VncSharp4Unity2D</RootNamespace>
     <AssemblyName>VncSharp4Unity2D</AssemblyName>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>VncSharpKey.snk</AssemblyOriginatorKeyFile>

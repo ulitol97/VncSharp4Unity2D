@@ -84,8 +84,8 @@ namespace VncSharp
 							inputPolicy = new VncViewInputPolicy(rfb);
 						else
 							inputPolicy = new VncDefaultInputPolicy(rfb);
-					}
-				}
+					} 
+			}
 	    }
 
 	    // Just for API compat, since I've added viewOnly
@@ -110,7 +110,6 @@ namespace VncSharp
 			// it must be 0 or greater.  This gets added to the default port number
 			// in order to determine where the server will be listening for connections.
 			if (display < 0) throw new ArgumentOutOfRangeException(nameof(display), display, "Display number must be non-negative.");
-			port += display;
 			
 			rfb = new RfbProtocol();
 
