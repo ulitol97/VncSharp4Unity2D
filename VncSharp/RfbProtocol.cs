@@ -860,7 +860,7 @@ namespace VncSharp
 				const int maxBufferSize = 64 * 1024; // 64k buffer
 				var receiveBuffer = new byte[maxBufferSize];
 				var netStream = (NetworkStream)BaseStream;
-				netStream.ReadTimeout = 15000; // Set timeout to 15s
+				netStream.ReadTimeout = 10000; // Set timeout to 10s
 				do
 				{
 					if (netStream.DataAvailable)

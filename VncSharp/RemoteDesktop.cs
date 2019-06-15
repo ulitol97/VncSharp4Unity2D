@@ -597,30 +597,6 @@ namespace VncSharp4Unity2D
 //            DrawDesktopMessage("Connecting to VNC host, please wait...");
         }
 
-        /// <summary>
-        /// Draws the given message (white text) on the local desktop (all black).
-        /// </summary>
-        /// <param name="message">The message to be drawn.</param>
-//        private void DrawDesktopMessage(string message)
-//        {
-//            Assert(desktop != null, "Can't draw on desktop when null.");
-//            // Draw the given message on the local desktop
-//            using (var g = Graphics.FromImage(desktop))
-//            {
-//                g.FillRectangle(Brushes.Black, vnc.Framebuffer.Rectangle);
-//
-//                var format = new StringFormat
-//                {
-//                    Alignment = StringAlignment.Center,
-//                    LineAlignment = StringAlignment.Center
-//                };
-//
-//                g.DrawString(message,
-//                    new Font("Arial", 12),
-//                    new SolidBrush(Color.White),
-//                    new PointF(vnc.Framebuffer.Width / 2, vnc.Framebuffer.Height / 2), format);
-//            }
-//        }
 
         /// <summary>
         /// Stops the remote host from sending further updates and disconnects.
@@ -647,8 +623,7 @@ namespace VncSharp4Unity2D
             vnc.WriteClientCutText(text);
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2213:DisposableFieldsShouldBeDisposed", MessageId = "desktop")]
-        protected void Dispose(bool disposing)
+        public void Dispose(bool disposing)
         {
             if (!disposing) return;
             // Make sure the connection is closed--should never happen :)
@@ -659,92 +634,7 @@ namespace VncSharp4Unity2D
             // CodeAnalysis doesn't like null propagation...
             desktop?.Dispose();
         }
-
-    //        protected void WndProc(ref Message m)
-    //        {
-    //            if (m.Msg == KeyboardHook.HookKeyMsg)
-    //            {
-    //                var msgData =
-    //                    (KeyboardHook.HookKeyMsgData) Marshal.PtrToStructure(m.LParam, typeof(KeyboardHook.HookKeyMsgData));
-    //                HandleKeyboardEvent(m.WParam.ToInt32(), msgData.KeyCode, msgData.ModifierKeys);
-    //            }
-    //            else
-    //            {
-    //                base.WndProc(ref m);
-    //            }
-    //        }
-
-    
-//    We do not want paint events on Windows Forms. We'll extract a texture from the Bitmap manually.
-//        protected override void OnPaint(PaintEventArgs pe)
-//        {
-//            // If the control is in design mode, draw a nice background, otherwise paint the desktop.
-//            if (!DesignMode)
-//            {
-//                switch (state)
-//                {
-//                    case RuntimeState.Connected:
-//                        if (desktop != null)
-//                            DrawDesktopImage(desktop, pe.Graphics);
-//                        break;
-//                    case RuntimeState.Disconnected:
-//                    case RuntimeState.Disconnecting:
-//                    case RuntimeState.Connecting:
-//                        // Do nothing, just black background.
-//                        break;
-//                    default:
-//                        // Sanity check
-//                        // we should never get here...
-//                        throw new NotImplementedException($"RemoteDesktop in unknown State: {state}.");
-//                }
-//            }
-//            else
-//            {
-//                // Draw a static screenshot of a Windows desktop to simulate the control in action
-//                if (designModeDesktop != null)
-//                    DrawDesktopImage(designModeDesktop, pe.Graphics);
-//            }
-//            base.OnPaint(pe);
-//        }
-
-
-//    We do not want resize events on Windows Forms
-
-//        protected override void OnResize(EventArgs eventargs)
-//        {
-//            // Fix a bug with a ghost scrollbar in clipped mode on maximize
-//            var parent = Parent;
-//            while (parent != null)
-//                if (parent is Form)
-//                {
-//                    var form = parent as Form;
-//                    if (form.WindowState == FormWindowState.Maximized)
-//                        form.Invalidate();
-//                    parent = null;
-//                }
-//                else
-//                {
-//                    parent = parent.Parent;
-//                }
-//
-//            base.OnResize(eventargs);
-//        }
-
-
-//    We do not need to draw this image this way.
-
-
-//        /// <summary>
-//        /// Draws an image onto the control in a size-aware way.
-//        /// </summary>
-//        /// <param name="desktopImage">The desktop image to be drawn to the control's sufrace.</param>
-//        /// <param name="g">The Graphics object representing the control's drawable surface.</param>
-//        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state.</exception>
-//        private void DrawDesktopImage(Image desktopImage, Graphics g)
-//        {
-//            g.DrawImage(desktopImage, desktopPolicy.RepositionImage(desktopImage));
-//        }
-
+        
         /// <summary>
         /// RemoteDesktop listens for ConnectionLost events from the VncClient object.
         /// </summary>
@@ -792,92 +682,7 @@ namespace VncSharp4Unity2D
             ConnectComplete?.Invoke(this, e);
         }
 
-        
-//        WE WILL NOT BE USING MOUSE SO WE WILL NEITHER HANDLE MOUSE EVENTS NOR USE WINFORMS.
-//        If needed, will be managed from unity ZInputStream.
-
-        // Handle Mouse Events:		 -------------------------------------------
-        // In all cases, the same thing needs to happen: figure out where the cursor
-        // is, and then figure out the state of all mouse buttons.
-        // TODO: currently we don't handle the case of 3-button emulation with 2-buttons.
-//        protected override void OnMouseMove(MouseEventArgs mea)
-//        {
-//            UpdateRemotePointer();
-//            base.OnMouseMove(mea);
-//        }
-
-//        protected override void OnMouseDown(MouseEventArgs mea)
-//        {
-//            // BUG FIX (Edward Cooke) -- Deal with Control.Select() semantics
-//            if (!Focused)
-//            {
-//                Focus();
-//                Select();
-//            }
-//            else
-//            {
-//                UpdateRemotePointer();
-//            }
-//            base.OnMouseDown(mea);
-//        }
-
-//        // Find out the proper masks for Mouse Button Up Events
-//        protected override void OnMouseUp(MouseEventArgs mea)
-//        {
-//            UpdateRemotePointer();
-//            base.OnMouseUp(mea);
-//        }
-
-        // TODO: Perhaps overload UpdateRemotePointer to take a flag indicating if mousescroll has occured??
-//        protected override void OnMouseWheel(MouseEventArgs mea)
-//        {
-//            // HACK: this check insures that while in DesignMode, no messages are sent to a VNC Host
-//            // (i.e., there won't be one--NullReferenceException)			
-//            if (!DesignMode && IsConnected)
-//            {
-//                var current = PointToClient(MousePosition);
-//                byte mask = 0;
-//
-//                // mouse was scrolled forward
-//                if (mea.Delta > 0)
-//                    mask += 8;
-//                else if (mea.Delta < 0)
-//                    mask += 16;
-//
-//                vnc.WritePointerEvent(mask, desktopPolicy.GetMouseMovePoint(current));
-//            }
-//            base.OnMouseWheel(mea);
-//        }
-
-//        private void UpdateRemotePointer()
-//        {
-//            // HACK: this check insures that while in DesignMode, no messages are sent to a VNC Host
-//            // (i.e., there won't be one--NullReferenceException)			
-//            if (DesignMode || !IsConnected) return;
-//            var current = PointToClient(MousePosition);
-//            byte mask = 0;
-//
-//            if (MouseButtons == MouseButtons.Left) mask += 1;
-//            if (MouseButtons == MouseButtons.Middle) mask += 2;
-//            if (MouseButtons == MouseButtons.Right) mask += 4;
-//
-//            var adjusted = desktopPolicy.GetMouseMoveRectangle();
-//            if (adjusted.Contains(current))
-//                vnc.WritePointerEvent(mask, desktopPolicy.UpdateRemotePointer(current));
-//        }
-
-//        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-//        [SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-//        protected override bool ProcessKeyEventArgs(ref Message m)
-//        {
-//            return HandleKeyboardEvent(m.Msg, m.WParam.ToInt32(), KeyboardHook.GetModifierKeyState());
-//        }
-
-//        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-//        {
-//            return ProcessKeyEventArgs(ref msg);
-//        }
-
+        // KEY MANAGEMENT
         private static readonly Dictionary<int, int> KeyTranslationTable = new Dictionary<int, int>
         {
             {NativeMethods.VK_CANCEL, RfbProtocol.XK_Cancel},
