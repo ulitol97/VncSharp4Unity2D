@@ -39,7 +39,10 @@ namespace VncSharp4Unity2D
     public delegate void ConnectCompleteHandler(object sender, ConnectEventArgs e);
 
     /// <summary>
-    /// When connecting to a VNC Host, a password will sometimes be required.  Therefore a password must be obtained from the user.  A default Password dialog box is included and will be used unless users of the control provide their own Authenticate delegate function for the task.  For example, this might pull a password from a configuration file of some type instead of prompting the user.
+    /// When connecting to a VNC Host, a password will sometimes be required.  Therefore a password must be
+    /// obtained from the user.  A default Password dialog box is included and will be used unless users of the
+    /// control provide their own Authenticate delegate function for the task.  For example, this might pull a
+    /// password from a configuration file of some type instead of prompting the user.
     /// </summary>
     public delegate string AuthenticateDelegate();
 
@@ -58,13 +61,17 @@ namespace VncSharp4Unity2D
 
     [ToolboxBitmap(typeof(RemoteDesktop), "Resources.vncviewer.ico")]
     /// <summary>
-    /// The RemoteDesktop control takes care of all the necessary RFB Protocol and GUI handling, including mouse and keyboard support, as well as requesting and processing screen updates from the remote VNC host.  Most users will choose to use the RemoteDesktop control alone and not use any of the other protocol classes directly.
+    /// The RemoteDesktop control takes care of all the necessary RFB Protocol and GUI handling, including mouse
+    /// and keyboard support, as well as requesting and processing screen updates from the remote VNC host.
+    /// Most users will choose to use the RemoteDesktop control alone and not use any of the other protocol
+    /// classes directly.
     /// </summary>
     public class RemoteDesktop
     {
         [Description("Raised after a successful call to the Connect() method.")]
         /// <summary>
-        /// Raised after a successful call to the Connect() method.  Includes information for updating the local display in ConnectEventArgs.
+        /// Raised after a successful call to the Connect() method.  Includes information for updating the local
+        /// display in ConnectEventArgs.
         /// </summary>
         public event ConnectCompleteHandler ConnectComplete;
 
@@ -81,7 +88,9 @@ namespace VncSharp4Unity2D
         public event EventHandler ClipboardChanged;
 
         /// <summary>
-        /// Points to a Function capable of obtaining a user's password.  By default this means using the PasswordDialog.GetPassword() function; however, users of RemoteDesktop can replace this with any function they like, so long as it matches the delegate type.
+        /// Points to a Function capable of obtaining a user's password.  By default this means using the
+        /// PasswordDialog.GetPassword() function; however, users of RemoteDesktop can replace this with any
+        /// function they like, so long as it matches the delegate type.
         /// </summary>
         // ReSharper disable once MemberCanBePrivate.Global
         // ReSharper disable once FieldCanBeMadeReadOnly.Global
@@ -133,6 +142,10 @@ namespace VncSharp4Unity2D
 
         }
 
+        public RemoteDesktop(string host, int port, string password) : this(host, port, 0, password)
+        {
+        }
+
 
         public RemoteDesktop(string host, int port, int display, string password)
         {
@@ -163,7 +176,8 @@ namespace VncSharp4Unity2D
         }
 
         /// <summary>
-        /// True if the RemoteDesktop is connected and authenticated (if necessary) with a remote VNC Host; otherwise False.
+        /// True if the RemoteDesktop is connected and authenticated (if necessary) with a remote VNC Host;
+        /// otherwise False.
         /// </summary>
         // ReSharper disable once MemberCanBePrivate.Global
         public bool IsConnected
@@ -221,7 +235,8 @@ namespace VncSharp4Unity2D
         /// for the full screen, and not a portion of it.  It will not do the update while
         /// blocking.
         /// </remarks>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the Connected state.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the
+        /// Connected state.  See <see cref="IsConnected" />.</exception>
         public void FullScreenUpdate()
         {
             InsureConnection(true);
@@ -229,10 +244,12 @@ namespace VncSharp4Unity2D
         }
 
         /// <summary>
-        /// Insures the state of the connection to the server, either Connected or Not Connected depending on the value of the connected argument.
+        /// Insures the state of the connection to the server, either Connected or Not Connected depending
+        /// on the value of the connected argument.
         /// </summary>
         /// <param name="connected">True if the connection must be established already, otherwise False.</param>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is in the wrong state.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is in the wrong
+        /// state.</exception>
         private void InsureConnection(bool connected)
         {
 #if DEBUG
@@ -249,7 +266,8 @@ namespace VncSharp4Unity2D
 #endif
                 if (state != RuntimeState.Connected && state != RuntimeState.Disconnecting)
                     throw new InvalidOperationException(
-                        "RemoteDesktop must be in Connected state before calling methods that require an established connection.");
+                        "RemoteDesktop must be in Connected state before calling methods that " +
+                        "require an established connection.");
             }
             else
             {
@@ -284,7 +302,8 @@ namespace VncSharp4Unity2D
         /// <param name="host">The IP Address or Host Name of the VNC Host.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect(string host)
         {
             // Use Display defined, (display 1 by default).
@@ -298,7 +317,8 @@ namespace VncSharp4Unity2D
         /// <param name="viewOnly">Determines whether mouse and keyboard events will be sent to the host.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect(string host, bool viewOnly)
         {
             // Use Display defined, (display 1 by default).
@@ -313,7 +333,8 @@ namespace VncSharp4Unity2D
         /// <param name="scaled">Determines whether to use desktop scaling or leave it normal and clip.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect(string host, bool viewOnly, bool scaled)
         {
             // Use Display defined, (display 1 by default).
@@ -327,7 +348,8 @@ namespace VncSharp4Unity2D
         /// <param name="display">The Display number (used on Unix hosts).</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect(string host, int display)
         {
             Connect(host, display, viewOnlyMode);
@@ -341,7 +363,8 @@ namespace VncSharp4Unity2D
         /// <param name="viewOnly">Determines whether mouse and keyboard events will be sent to the host.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect(string host, int display, bool viewOnly)
         {
             Connect(host, display, viewOnly, false);
@@ -356,7 +379,8 @@ namespace VncSharp4Unity2D
         /// <param name="scaled">Determines whether to use desktop scaling or leave it normal and clip.</param>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect(string host, int display, bool viewOnly, bool scaled)
         {
             // TODO: Should this be done asynchronously so as not to block the UI?  Since an event 
@@ -399,7 +423,8 @@ namespace VncSharp4Unity2D
         /// </summary>
         /// <exception cref="System.ArgumentNullException">Thrown if host is null.</exception>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown if display is negative.</exception>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         public void Connect()
         {
             // TODO: Should this be done asynchronously so as not to block the UI?  Since an event 
@@ -437,7 +462,8 @@ namespace VncSharp4Unity2D
         /// <summary>
         /// Authenticate with the VNC Host using a user supplied password.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.  See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already Connected.
+        /// See <see cref="IsConnected" />.</exception>
         /// <exception cref="System.NullReferenceException">Thrown if the password is null.</exception>
         /// <param name="password">The user's password.</param>
         private void Authenticate(string password)
@@ -445,7 +471,8 @@ namespace VncSharp4Unity2D
             InsureConnection(false);
             if (!passwordPending)
                 throw new InvalidOperationException(
-                    "Authentication is only required when Connect() returns True and the VNC Host requires a password.");
+                    "Authentication is only required when Connect() returns True and the VNC Host " +
+                    "requires a password.");
             if (password == null) throw new NullReferenceException("password");
 
             passwordPending = false; // repeated calls to Authenticate should fail.
@@ -517,9 +544,11 @@ namespace VncSharp4Unity2D
         }
 
         /// <summary>
-        /// After protocol-level initialization and connecting is complete, the local GUI objects have to be set-up, and requests for updates to the remote host begun.
+        /// After protocol-level initialization and connecting is complete, the local GUI objects have to be set-up,
+        /// and requests for updates to the remote host begun.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already in the Connected state.  See <see cref="IsConnected" />.</exception>		
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is already in the
+        /// Connected state.  See <see cref="IsConnected" />.</exception>		
         private void Initialize()
         {
             // Finish protocol handshake with host now that authentication is done.
@@ -540,20 +569,6 @@ namespace VncSharp4Unity2D
             // Start getting updates from the remote host (vnc.StartUpdates will begin a worker thread).
             vnc.VncUpdate += VncUpdate;
             vnc.StartUpdates();
-
-//            Handles special keys. Must be adapted.
-
-//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_LWIN, true);
-//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_RWIN, true);
-//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_ESCAPE, KeyboardHook.ModifierKeys.Control, true);
-//            KeyboardHook.RequestKeyNotification(Handle, NativeMethods.VK_TAB, KeyboardHook.ModifierKeys.Alt, true);
-
-            // TODO: figure out why Alt-Shift isn't blocked
-            //KeyboardHook.RequestKeyNotification(this.Handle, NativeMethods.VK_SHIFT, KeyboardHook.ModifierKeys.Alt, true);
-            //KeyboardHook.RequestKeyNotification(this.Handle, NativeMethods.VK_MENU, KeyboardHook.ModifierKeys.Shift, true);
-
-            // TODO: figure out why PrtScn doesn't work
-            //KeyboardHook.RequestKeyNotification(this.Handle, NativeMethods.VK_SNAPSHOT, true);
         }
 
         private void SetState(RuntimeState newState)
@@ -564,7 +579,8 @@ namespace VncSharp4Unity2D
         /// <summary>
         /// Creates and initially sets-up the local bitmap that will represent the remote desktop image.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state. See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in
+        /// the Connected state. See <see cref="IsConnected" />.</exception>
         private void SetupDesktop()
         {
             InsureConnection(true);
@@ -579,7 +595,8 @@ namespace VncSharp4Unity2D
         /// <summary>
         /// Stops the remote host from sending further updates and disconnects.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in the Connected state. See <see cref="IsConnected" />.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not already in
+        /// the Connected state. See <see cref="IsConnected" />.</exception>
         public void Disconnect()
         {
             InsureConnection(true);
@@ -644,7 +661,8 @@ namespace VncSharp4Unity2D
         /// Dispatches the ConnectionLost event if any targets have registered.
         /// </summary>
         /// <param name="e">An EventArgs object.</param>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is in the Connected state.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is in the
+        /// Connected state.</exception>
         private void OnConnectionLost()
         {
             ConnectionLost?.Invoke(this, EventArgs.Empty);
@@ -654,7 +672,8 @@ namespace VncSharp4Unity2D
         /// Dispatches the ConnectComplete event if any targets have registered.
         /// </summary>
         /// <param name="e">A ConnectEventArgs object with information about the remote framebuffer's geometry.</param>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the Connected state.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the
+        /// Connected state.</exception>
         private void OnConnectComplete(ConnectEventArgs e)
         {
             ConnectComplete?.Invoke(this, e);
@@ -723,7 +742,8 @@ namespace VncSharp4Unity2D
             keyboardState[NativeMethods.VK_RWIN] = 0;
 
             var charResult = new byte[2];
-            var charCount = NativeMethods.ToAscii(virtualKey, NativeMethods.MapVirtualKey(virtualKey, 0), keyboardState, charResult, 0);
+            var charCount = NativeMethods.ToAscii(virtualKey, NativeMethods.MapVirtualKey(virtualKey, 0), 
+                keyboardState, charResult, 0);
 
             // TODO: This could probably be handled better. For now, we'll just return the last character.
             return charCount > 0 ? Convert.ToInt32(charResult[charCount - 1]) : virtualKey;
@@ -756,7 +776,8 @@ namespace VncSharp4Unity2D
         {
             if ((PreviousModifierKeyState & KeyboardHook.ModifierKeys.LeftShift) !=
                 (modifierKeys & KeyboardHook.ModifierKeys.LeftShift))
-                vnc.WriteKeyboardEvent(RfbProtocol.XK_Shift_L, (modifierKeys & KeyboardHook.ModifierKeys.LeftShift) != 0);
+                vnc.WriteKeyboardEvent(RfbProtocol.XK_Shift_L,
+                    (modifierKeys & KeyboardHook.ModifierKeys.LeftShift) != 0);
             if ((PreviousModifierKeyState & KeyboardHook.ModifierKeys.RightShift) !=
                 (modifierKeys & KeyboardHook.ModifierKeys.RightShift))
                 vnc.WriteKeyboardEvent(RfbProtocol.XK_Shift_R,
@@ -783,7 +804,8 @@ namespace VncSharp4Unity2D
                 vnc.WriteKeyboardEvent(RfbProtocol.XK_Super_L, (modifierKeys & KeyboardHook.ModifierKeys.LeftWin) != 0);
             if ((PreviousModifierKeyState & KeyboardHook.ModifierKeys.RightWin) !=
                 (modifierKeys & KeyboardHook.ModifierKeys.RightWin))
-                vnc.WriteKeyboardEvent(RfbProtocol.XK_Super_R, (modifierKeys & KeyboardHook.ModifierKeys.RightWin) != 0);
+                vnc.WriteKeyboardEvent(RfbProtocol.XK_Super_R, 
+                    (modifierKeys & KeyboardHook.ModifierKeys.RightWin) != 0);
 
             PreviousModifierKeyState = modifierKeys;
         }
@@ -822,8 +844,10 @@ namespace VncSharp4Unity2D
         /// Sends a keyboard combination that would otherwise be reserved for the client PC.
         /// </summary>
         /// <param name="keys">SpecialKeys is an enumerated list of supported keyboard combinations.</param>
-        /// <remarks>Keyboard combinations are Pressed and then Released, while single keys (e.g., SpecialKeys.Ctrl) are only pressed so that subsequent keys will be modified.</remarks>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the Connected state.</exception>
+        /// <remarks>Keyboard combinations are Pressed and then Released, while single keys (e.g., SpecialKeys.Ctrl)
+        /// are only pressed so that subsequent keys will be modified.</remarks>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the
+        /// Connected state.</exception>
         public void SendSpecialKeys(SpecialKeys keys)
         {
             SendSpecialKeys(keys, true);
@@ -834,8 +858,10 @@ namespace VncSharp4Unity2D
         /// </summary>
         /// <param name="keys">SpecialKeys is an enumerated list of supported keyboard combinations.</param>
         /// /// <param name="release">Boolean release</param>
-        /// <remarks>Keyboard combinations are Pressed and then Released, while single keys (e.g., SpecialKeys.Ctrl) are only pressed so that subsequent keys will be modified.</remarks>
-        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the Connected state.</exception>
+        /// <remarks>Keyboard combinations are Pressed and then Released, while single keys (e.g., SpecialKeys.Ctrl)
+        /// are only pressed so that subsequent keys will be modified.</remarks>
+        /// <exception cref="System.InvalidOperationException">Thrown if the RemoteDesktop control is not in the
+        /// Connected state.</exception>
         private void SendSpecialKeys(SpecialKeys keys, bool release)
         {
             InsureConnection(true);
