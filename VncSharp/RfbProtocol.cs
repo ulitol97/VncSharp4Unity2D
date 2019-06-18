@@ -398,7 +398,8 @@ namespace VncSharp
 		}
 		
 		/// <summary>
-		/// Reads the server's Initialization message, specifically the remote Framebuffer's properties. See RFB Doc v. 3.8 section 6.1.5.
+		/// Reads the server's Initialization message, specifically the remote frame buffer's properties.
+		/// See RFB Doc v. 3.8 section 6.1.5.
 		/// </summary>
 		/// <returns>Returns a Framebuffer object representing the geometry and properties of the remote host.</returns>
 		public Framebuffer ReadServerInit(int bitsPerPixel, int depth)
@@ -755,7 +756,8 @@ namespace VncSharp
 		
 
 		/// <summary>
-		/// BigEndianBinaryWriter is a wrapper class used to write .NET integral types in Big-Endian order to a stream.  It inherits from BinaryWriter and adds Little- to Big-Endian conversion.
+		/// BigEndianBinaryWriter is a wrapper class used to write .NET integral types in Big-Endian order to a stream.
+		/// It inherits from BinaryWriter and adds Little- to Big-Endian conversion.
 		/// </summary>
 		protected sealed class BigEndianBinaryWriter : BinaryWriter
 		{

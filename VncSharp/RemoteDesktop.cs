@@ -559,24 +559,6 @@ namespace VncSharp4Unity2D
         private void SetState(RuntimeState newState)
         {
             state = newState;
-
-            // Set mouse pointer according to new state
-            // ReSharper disable once SwitchStatementMissingSomeCases
-            
-//            Cursor / mouse updating
-            
-//            switch (state)
-//            {
-//                case RuntimeState.Connected:
-//                    // Change the cursor to the "vnc" custor--a see-through dot
-//                    Cursor = new Cursor(GetType(), "Resources.vnccursor.cur");
-//                    break;
-//                // All other states should use the normal cursor.
-//                //case RuntimeState.Disconnected:
-//                default:
-//                    Cursor = Cursors.Default;
-//                    break;
-//            }
         }
 
         /// <summary>
@@ -591,10 +573,6 @@ namespace VncSharp4Unity2D
             // remote framebuffer, and 32bpp pixel format (doesn't matter what the server is sending--8,16,
             // or 32--we always draw 32bpp here for efficiency).
             desktop = new Bitmap(vnc.Framebuffer.Width, vnc.Framebuffer.Height, PixelFormat.Format32bppPArgb);
-
-//            // Draw a "please wait..." message on the local desktop until the first
-//            // rectangle(s) arrive and overwrite with the desktop image.
-//            DrawDesktopMessage("Connecting to VNC host, please wait...");
         }
 
 

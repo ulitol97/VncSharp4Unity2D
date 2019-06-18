@@ -44,7 +44,7 @@ namespace VncSharp.Encodings
 			source.Y = rfb.ReadUInt16();
 		}
 
-		public unsafe override void Draw(Bitmap desktop)
+		public override unsafe void Draw(Bitmap desktop)
 		{
 			// Given a source area, copy this region to the point specified by destination
 			var bmpd = desktop.LockBits(new Rectangle(new Point(0,0), desktop.Size),

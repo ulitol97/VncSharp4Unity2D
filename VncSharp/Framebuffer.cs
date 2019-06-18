@@ -71,7 +71,8 @@ namespace VncSharp
 		public int Height { get; }
 
 	    /// <summary>
-		/// Gets a Rectangle object constructed out of the Width and Height for the Framebuffer.  Used as a convenience in other classes.
+		/// Gets a Rectangle object constructed out of the Width and Height for the Framebuffer.
+		/// Used as a convenience in other classes.
 		/// </summary>
 		public Rectangle Rectangle
 	    {
@@ -144,9 +145,12 @@ namespace VncSharp
 		}
 
 		/// <summary>
-		/// When communicating with the VNC Server, bytes are used to represent many of the values above.  However, internally it is easier to use Integers.  This method provides a translation between the two worlds.
+		/// When communicating with the VNC Server, bytes are used to represent many of the values above.
+		/// However, internally it is easier to use Integers.
+		/// This method provides a translation between the two worlds.
 		/// </summary>
-		/// <returns>A byte array of 16 bytes containing the properties of the framebuffer in a format ready for transmission to the VNC server.</returns>
+		/// <returns>A byte array of 16 bytes containing the properties of the framebuffer
+		/// in a format ready for transmission to the VNC server.</returns>
 		public byte[] ToPixelFormat()
 		{
 			var b = new byte[16];
@@ -174,7 +178,7 @@ namespace VncSharp
         /// </summary>
         /// <param name="b">The 16-byte PIXEL_FORMAT record.</param>
         /// <param name="width">The width in pixels of the remote desktop.</param>
-        /// <param name="height">The height in pixles of the remote desktop.</param>
+        /// <param name="height">The height in pixels of the remote desktop.</param>
 		/// <param name="bitsPerPixel">The number of Bits Per Pixel for the Framebuffer--one of 8, 16, or 32.</param>
 		/// <param name="depth">The Colour Depth of the Framebuffer--one of 3, 6, 8 or 16.</param>
         /// <returns>Returns a Framebuffer object matching the specification of b[].</returns>

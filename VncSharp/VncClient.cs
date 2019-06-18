@@ -374,7 +374,7 @@ namespace VncSharp
 		/// </summary>
 		private void GetRfbUpdates()
 		{
-			// Get the initial destkop from the host
+			// Get the initial desktop from the host
 			int connLostCount = 0;
 			RequestScreenUpdate(true);
 
